@@ -2,6 +2,34 @@
 
 Frontend To-Do Application Competency Task by Tapiwa Zireva.
 
+## Features
+
+### Phase 1: Foundation & Core Features ✅
+- Add new tasks
+- Mark tasks as complete/incomplete
+- Delete tasks with confirmation modal
+- Dark/Light/System theme switching
+- LocalStorage persistence
+- Responsive design
+- Smooth animations with Framer Motion
+- Custom TZ branding (purple & rose gold)
+- Error boundary for error handling
+
+### Phase 2: Enhanced Functionality ✅
+- **Inline Edit Mode**: Double-click any todo or click the edit icon to edit inline
+  - Press Enter to save changes
+  - Press Escape to cancel editing
+- **Smart Filtering**: Filter todos by status
+  - All: View all todos
+  - Active: View only incomplete todos
+  - Completed: View only completed todos
+  - Real-time count updates for each filter
+- **Loading States**: Skeleton loaders while fetching todos (2-second delay simulates API calls)
+- **Error Handling**: Graceful error messages with retry capability
+- **Delete Confirmation**: Modal confirmation before deleting to prevent accidents
+- **Optimistic Updates**: UI updates immediately for better UX, with rollback on error
+- **Clean Architecture**: All async operations implemented inline within TodoContext, following best practices for React state management with reducers
+
 ## Tech Stack
 
 - **React 19** - UI library
