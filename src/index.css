@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+@layer base {
+  :root {
+    /* Light theme with purple and rose gold accents */
+    --background: 0 0% 100%;
+    --foreground: 270 20% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 270 20% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 270 20% 15%;
+    --primary: 270 33% 34%; /* #433458 - Brand purple */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 25 70% 70%; /* Rose gold accent */
+    --secondary-foreground: 270 20% 15%;
+    --muted: 270 10% 95%;
+    --muted-foreground: 270 10% 45%;
+    --accent: 25 70% 70%; /* Rose gold */
+    --accent-foreground: 270 20% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 15% 90%;
+    --input: 270 15% 90%;
+    --ring: 270 33% 34%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark theme with purple background and rose gold accents */
+    --background: 270 33% 20%; /* Darker purple */
+    --foreground: 0 0% 95%;
+    --card: 270 33% 25%;
+    --card-foreground: 0 0% 95%;
+    --popover: 270 33% 25%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 25 70% 65%; /* Lighter rose gold for dark mode */
+    --primary-foreground: 270 33% 20%;
+    --secondary: 270 33% 34%; /* Brand purple */
+    --secondary-foreground: 0 0% 95%;
+    --muted: 270 33% 30%;
+    --muted-foreground: 270 10% 70%;
+    --accent: 25 70% 65%; /* Rose gold */
+    --accent-foreground: 270 33% 20%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 33% 30%;
+    --input: 270 33% 30%;
+    --ring: 25 70% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
