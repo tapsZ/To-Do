@@ -6,7 +6,7 @@ export interface Todo {
 }
 
 const STORAGE_KEY = "tz-todos"
-const DELAY = 300
+const DELAY = 2000
 
 const getDb = (): Todo[] => {
     const stored = localStorage.getItem(STORAGE_KEY)
@@ -18,11 +18,13 @@ const setDb = (todos: Todo[]) => {
 }
 
 export const todoService = {
+    //GET
     getTodos: async (): Promise<Todo[]> => {
         await new Promise((resolve) => setTimeout(resolve, DELAY))
         return getDb()
     },
 
+    //POST
     addTodo: async (text: string): Promise<Todo> => {
         await new Promise((resolve) => setTimeout(resolve, DELAY))
         const todos = getDb()
@@ -36,6 +38,7 @@ export const todoService = {
         return newTodo
     },
 
+    //PUT
     updateTodo: async (updatedTodo: Todo): Promise<Todo> => {
         await new Promise((resolve) => setTimeout(resolve, DELAY))
         const todos = getDb()
@@ -44,6 +47,7 @@ export const todoService = {
         return updatedTodo
     },
 
+    //DELETE
     deleteTodo: async (id: string): Promise<void> => {
         await new Promise((resolve) => setTimeout(resolve, DELAY))
         const todos = getDb()
