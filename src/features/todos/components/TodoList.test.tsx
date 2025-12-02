@@ -2,7 +2,6 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { TodoList } from './TodoList';
 import { useTodos } from '../../../context/TodoContext';
-import React from 'react';
 
 // Mock useTodos
 vi.mock('../../../context/TodoContext', () => ({
