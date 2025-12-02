@@ -10,7 +10,7 @@ describe('todoReducer', () => {
     });
 
     it('should handle FETCH_SUCCESS', () => {
-        const todos = [{ id: '1', text: 'Test Todo', completed: false, createdAt: new Date() }];
+        const todos = [{ id: '1', text: 'Test Todo', completed: false, createdAt: Date.now() }];
         const action = { type: 'FETCH_SUCCESS', payload: todos } as const;
         const state = todoReducer(initialState, action);
         expect(state.isLoading).toBe(false);
@@ -26,15 +26,15 @@ describe('todoReducer', () => {
     });
 
     it('should handle ADD_TODO', () => {
-        const newTodo = { id: '1', text: 'New Todo', completed: false, createdAt: new Date() };
+        const newTodo = { id: '1', text: 'New Todo', completed: false, createdAt: Date.now() };
         const action = { type: 'ADD_TODO', payload: newTodo } as const;
         const state = todoReducer(initialState, action);
         expect(state.todos).toContainEqual(newTodo);
     });
 
     it('should handle UPDATE_TODO', () => {
-        const initialTodos = [{ id: '1', text: 'Old Todo', completed: false, createdAt: new Date() }];
-        const updatedTodo = { id: '1', text: 'Updated Todo', completed: true, createdAt: new Date() };
+        const initialTodos = [{ id: '1', text: 'Old Todo', completed: false, createdAt: Date.now() }];
+        const updatedTodo = { id: '1', text: 'Updated Todo', completed: true, createdAt: Date.now() };
         const stateWithTodos = { ...initialState, todos: initialTodos };
         const action = { type: 'UPDATE_TODO', payload: updatedTodo } as const;
         const state = todoReducer(stateWithTodos, action);
@@ -42,7 +42,7 @@ describe('todoReducer', () => {
     });
 
     it('should handle DELETE_TODO', () => {
-        const initialTodos = [{ id: '1', text: 'Todo to delete', completed: false, createdAt: new Date() }];
+        const initialTodos = [{ id: '1', text: 'Todo to delete', completed: false, createdAt: Date.now() }];
         const stateWithTodos = { ...initialState, todos: initialTodos };
         const action = { type: 'DELETE_TODO', payload: '1' } as const;
         const state = todoReducer(stateWithTodos, action);

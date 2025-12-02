@@ -2,7 +2,6 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { TodoItem } from './TodoItem';
 import { useTodos } from '../../../context/TodoContext';
-import React from 'react';
 
 // Mock useTodos
 vi.mock('../../../context/TodoContext', () => ({
@@ -46,7 +45,7 @@ describe('TodoItem', () => {
         id: '1',
         text: 'Test Todo',
         completed: false,
-        createdAt: new Date(),
+        createdAt: Date.now(),
     };
 
     const mockToggleComplete = vi.fn();
@@ -90,16 +89,7 @@ describe('TodoItem', () => {
 
     it('should open delete modal', () => {
         render(<TodoItem todo={mockTodo} />);
-        // Assuming the delete button is the second button (edit is first) or we can find by icon if we didn't mock Button so simply
-        // Since we mocked Button to just render children, we need to find the button that triggers delete.
-        // In the component, the delete button has an onClick that sets isDeleteModalOpen(true).
-        // Let's rely on the fact that there are two buttons initially visible (Edit and Delete).
-        // Actually, the buttons are hidden by default on desktop (opacity-0), but visible on mobile.
-        // Since we are in jsdom, we can just click it.
 
-        // We need to find the delete button. It has a Trash2 icon.
-        // Since we mocked Button, we can't easily find by icon unless we render the icon.
-        // Let's just find all buttons and click the second one (Delete).
         const buttons = screen.getAllByRole('button');
         // 0: Edit, 1: Delete
         fireEvent.click(buttons[1]);

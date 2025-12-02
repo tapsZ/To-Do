@@ -1,12 +1,11 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, act } from '@testing-library/react';
 import { ThemeProvider, useTheme } from './ThemeContext';
-import React from 'react';
 
 // Mock useLocalStorage
 const mockSetStoredValue = vi.fn();
 vi.mock('../hooks/useLocalStorage', () => ({
-    useLocalStorage: (key: string, initialValue: any) => {
+    useLocalStorage: (_key: string, initialValue: any) => {
         return [initialValue, mockSetStoredValue];
     },
 }));
