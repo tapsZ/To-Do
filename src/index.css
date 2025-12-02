@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
@@ -35,13 +37,16 @@
     --card-foreground: 270 20% 15%;
     --popover: 0 0% 100%;
     --popover-foreground: 270 20% 15%;
-    --primary: 270 33% 34%; /* #433458 - Brand purple */
+    --primary: 270 33% 34%;
+    /* #433458 - Brand purple */
     --primary-foreground: 0 0% 98%;
-    --secondary: 25 70% 70%; /* Rose gold accent */
+    --secondary: 25 70% 70%;
+    /* Rose gold accent */
     --secondary-foreground: 270 20% 15%;
     --muted: 270 10% 95%;
     --muted-foreground: 270 10% 45%;
-    --accent: 25 70% 70%; /* Rose gold */
+    --accent: 25 70% 70%;
+    /* Rose gold */
     --accent-foreground: 270 20% 15%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
@@ -53,19 +58,23 @@
 
   .dark {
     /* Dark theme with purple background and rose gold accents */
-    --background: 270 33% 20%; /* Darker purple */
+    --background: 270 33% 20%;
+    /* Darker purple */
     --foreground: 0 0% 95%;
     --card: 270 33% 25%;
     --card-foreground: 0 0% 95%;
     --popover: 270 33% 25%;
     --popover-foreground: 0 0% 95%;
-    --primary: 25 70% 65%; /* Lighter rose gold for dark mode */
+    --primary: 25 70% 65%;
+    /* Lighter rose gold for dark mode */
     --primary-foreground: 270 33% 20%;
-    --secondary: 270 33% 34%; /* Brand purple */
+    --secondary: 270 33% 34%;
+    /* Brand purple */
     --secondary-foreground: 0 0% 95%;
     --muted: 270 33% 30%;
     --muted-foreground: 270 10% 70%;
-    --accent: 25 70% 65%; /* Rose gold */
+    --accent: 25 70% 65%;
+    /* Rose gold */
     --accent-foreground: 270 33% 20%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
