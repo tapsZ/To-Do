@@ -1,15 +1,15 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import { TodoList } from './TodoList';
-import { useTodos } from '../../../context/TodoContext';
+import { TodoList } from '../../src/features/todos/components/TodoList';
+import { useTodos } from '../../src/context/todo/TodoContext';
 
 // Mock useTodos
-vi.mock('../../../context/TodoContext', () => ({
+vi.mock('../../src/context/todo/TodoContext', () => ({
     useTodos: vi.fn(),
 }));
 
 // Mock TodoItem
-vi.mock('./TodoItem', () => ({
+vi.mock('../../src/features/todos/components/TodoItem', () => ({
     TodoItem: ({ todo }: any) => <div data-testid="todo-item">{todo.text}</div>,
 }));
 
@@ -32,9 +32,9 @@ describe('TodoList', () => {
         } as any);
 
         render(<TodoList />);
-        // Check for pulse elements
-        const pulseElements = document.querySelectorAll('.animate-pulse');
-        expect(pulseElements.length).toBe(3);
+        // Check for spinner
+        const spinner = document.querySelector('.animate-spin');
+        expect(spinner).toBeInTheDocument();
     });
 
     it('should render error state', () => {

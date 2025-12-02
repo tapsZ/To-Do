@@ -7,7 +7,7 @@ export default defineConfig({
   base: process.env.VERCEL ? "/" : "/To-Do/",
   test: {
     environment: 'jsdom',
-    setupFiles: ['./src/test/setup.ts'],
+    setupFiles: ['./tests/setup.ts'],
     globals: true,
   },
 })

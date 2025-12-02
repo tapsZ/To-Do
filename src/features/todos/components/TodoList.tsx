@@ -1,6 +1,7 @@
 import React from "react"
 import { AnimatePresence } from "framer-motion"
-import { useTodos } from "../../../context/TodoContext"
+import { Loader2 } from "lucide-react"
+import { useTodos } from "../../../context/todo/TodoContext"
 import { TodoItem } from "./TodoItem"
 
 export const TodoList: React.FC = () => {
@@ -14,10 +15,8 @@ export const TodoList: React.FC = () => {
 
     if (isLoading && todos.length === 0) {
         return (
-            <div className="space-y-3">
-                {[1, 2, 3].map((i) => (
-                    <div key={i} className="h-14 animate-pulse rounded-lg bg-muted" />
-                ))}
+            <div className="flex h-40 items-center justify-center">
+                <Loader2 className="h-8 w-8 animate-spin text-primary" />
             </div>
         )
     }

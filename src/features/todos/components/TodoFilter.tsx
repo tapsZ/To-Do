@@ -1,13 +1,14 @@
 import React from "react"
-import { useTodos } from "../../../context/TodoContext"
+import { useTodos } from "../../../context/todo/TodoContext"
 import { Button } from "../../../components/ui/Button"
 import { cn } from "../../../utils/cn"
+import type {Todo} from "../../../services/todoService.ts";
 
 export const TodoFilter: React.FC = () => {
     const { filter, setFilter, todos } = useTodos()
 
-    const activeCount = todos.filter((t) => !t.completed).length
-    const completedCount = todos.filter((t) => t.completed).length
+    const activeCount = todos.filter((t:Todo):boolean => !t.completed).length
+    const completedCount = todos.filter((t:Todo):boolean => t.completed).length
 
     return (
         <div className="flex items-center gap-2">
