@@ -20,7 +20,7 @@ const setDb = (todos: Todo[]) => {
 export const todoService = {
     //GET
     getTodos: async (): Promise<Todo[]> => {
-        await new Promise((resolve) => setTimeout(resolve, DELAY))
+        await new Promise((resolve) => setTimeout(resolve, 2000))
         return getDb()
     },
 
