@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Plus, Loader2 } from "lucide-react"
-import { useTodos } from "../../../context/TodoContext"
+import { useTodos } from "../../../context/todo/TodoContext"
 import { Button } from "../../../components/ui/Button"
 import { Input } from "../../../components/ui/Input"
 

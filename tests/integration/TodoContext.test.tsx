@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { todoReducer, initialState } from './TodoContext';
+import { todoReducer, initialState } from '../../src/context/todo/reducer';
 
 describe('todoReducer', () => {
     it('should handle FETCH_START', () => {

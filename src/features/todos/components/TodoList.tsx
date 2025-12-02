@@ -1,7 +1,7 @@
 import React from "react"
 import { AnimatePresence } from "framer-motion"
 import { Loader2 } from "lucide-react"
-import { useTodos } from "../../../context/TodoContext"
+import { useTodos } from "../../../context/todo/TodoContext"
 import { TodoItem } from "./TodoItem"
 
 export const TodoList: React.FC = () => {

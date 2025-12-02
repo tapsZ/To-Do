@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { Header } from '../../components/layout/Header';
-import { ThemeProvider } from '../../context/ThemeContext';
+import { Header } from '../../src/components/layout/Header';
+import { ThemeProvider } from '../../src/context/ThemeContext';
 
 // Mock matchMedia
 Object.defineProperty(window, 'matchMedia', {

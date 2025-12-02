@@ -1,5 +1,5 @@
 import { ThemeProvider } from "./context/ThemeContext"
-import { TodoProvider } from "./context/TodoContext"
+import { TodoProvider } from "./context/todo/TodoContext"
 import { Header } from "./components/layout/Header"
 import { TodoList } from "./features/todos/components/TodoList"
 import { TodoForm } from "./features/todos/components/TodoForm"

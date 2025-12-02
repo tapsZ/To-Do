@@ -1,13 +1,13 @@
 import React, { useState } from "react"
-import { Trash2, Edit2, Check, X, Loader2 } from "lucide-react"
+import { Trash2, Edit2 } from "lucide-react"
 import { motion } from "framer-motion"
 import type { Todo } from "../../../services/todoService"
-import { useTodos } from "../../../context/TodoContext"
+import { useTodos } from "../../../context/todo/TodoContext"
 import { Checkbox } from "../../../components/ui/Checkbox"
 import { Button } from "../../../components/ui/Button"
-import { Input } from "../../../components/ui/Input"
-import { Modal } from "../../../components/ui/Modal"
 import { cn } from "../../../utils/cn"
+import { TodoItemEdit } from "./TodoItem/TodoItemEdit"
+import { DeleteConfirmation } from "./TodoItem/DeleteConfirmation"
 
 interface TodoItemProps {
     todo: Todo
@@ -57,24 +57,12 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
 
                 <div className="flex-1">
                     {isEditing ? (
-                        <div className="flex items-center gap-2">
-                            <Input
-                                value={editText}
-                                onChange={(e) => setEditText(e.target.value)}
-                                className="h-8"
-                                autoFocus
-                                onKeyDown={(e) => {
-                                    if (e.key === "Enter") handleUpdate()
-                                    if (e.key === "Escape") handleCancel()
-                                }}
-                            />
-                            <Button size="sm" variant="ghost" onClick={handleUpdate} className="h-8 w-8 p-0">
-                                <Check className="h-4 w-4 text-green-500" />
-                            </Button>
-                            <Button size="sm" variant="ghost" onClick={handleCancel} className="h-8 w-8 p-0">
-                                <X className="h-4 w-4 text-red-500" />
-                            </Button>
-                        </div>
+                        <TodoItemEdit
+                            editText={editText}
+                            setEditText={setEditText}
+                            handleUpdate={handleUpdate}
+                            handleCancel={handleCancel}
+                        />
                     ) : (
                         <span
                             className={cn(
@@ -110,32 +98,14 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
                 )}
             </motion.div>
 
-            <Modal
+            <DeleteConfirmation
                 isOpen={isDeleteModalOpen}
-                onClose={() => !isDeleting && setIsDeleteModalOpen(false)}
-                title="Delete Task"
-                footer={
-                    <>
-                        <Button variant="ghost" onClick={() => setIsDeleteModalOpen(false)} disabled={isDeleting}>
-                            Cancel
-                        </Button>
-                        <Button variant="danger" onClick={handleDelete} disabled={isDeleting}>
-                            {isDeleting ? (
-                                <>
-                                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                    Deleting...
-                                </>
-                            ) : (
-                                "Delete"
-                            )}
-                        </Button>
-                    </>
-                }
-            >
-                <p className="text-sm text-muted-foreground">
-                    Are you sure you want to delete "{todo.text}"? This action cannot be undone.
-                </p>
-            </Modal>
+                isDeleting={isDeleting}
+                todoText={todo.text}
+                onClose={() => setIsDeleteModalOpen(false)}
+                onConfirm={handleDelete}
+            />
         </>
     )
 }
+
