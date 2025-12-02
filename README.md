@@ -66,10 +66,10 @@ Here is a simple overview of how the application functions:
 graph TD
     User((User))
     subgraph "The Application"
-        UI[User Interface\n(Forms, Lists, Buttons)]
-        Logic[Logic Center\n(TodoContext)]
+        UI["User Interface<br/>(Forms, Lists, Buttons)"]
+        Logic["Logic Center<br/>(TodoContext)"]
     end
-    Storage[(Browser Memory\nLocalStorage)]
+    Storage[("Browser Memory<br/>LocalStorage")]
 
     User -- 1. Interacts --> UI
     UI -- 2. Sends Action --> Logic

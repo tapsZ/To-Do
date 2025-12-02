@@ -30,53 +30,57 @@
 
 @layer base {
   :root {
-    /* Light theme - Blue based */
+    /* Light theme with purple and rose gold accents */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 270 20% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 270 20% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    /* Blue 600 */
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 270 20% 15%;
+    --primary: 270 33% 34%;
+    /* #433458 - Brand purple */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 25 70% 70%;
+    /* Rose gold accent */
+    --secondary-foreground: 270 20% 15%;
+    --muted: 270 10% 95%;
+    --muted-foreground: 270 10% 45%;
+    --accent: 25 70% 70%;
+    /* Rose gold */
+    --accent-foreground: 270 20% 15%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 15% 90%;
+    --input: 270 15% 90%;
+    --ring: 270 33% 34%;
     --radius: 0.5rem;
   }
 
   .dark {
-    /* Dark theme - Deep Navy Blue based */
-    --background: 222.2 84% 4.9%;
-    /* #020817 */
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    /* Blue 500 */
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Dark theme with purple background and rose gold accents */
+    --background: 270 33% 20%;
+    /* Darker purple */
+    --foreground: 0 0% 95%;
+    --card: 270 33% 25%;
+    --card-foreground: 0 0% 95%;
+    --popover: 270 33% 25%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 25 70% 65%;
+    /* Lighter rose gold for dark mode */
+    --primary-foreground: 270 33% 20%;
+    --secondary: 270 33% 34%;
+    /* Brand purple */
+    --secondary-foreground: 0 0% 95%;
+    --muted: 270 33% 30%;
+    --muted-foreground: 270 10% 70%;
+    --accent: 25 70% 65%;
+    /* Rose gold */
+    --accent-foreground: 270 33% 20%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 33% 30%;
+    --input: 270 33% 30%;
+    --ring: 25 70% 65%;
   }
 }
 
