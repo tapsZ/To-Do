@@ -79,6 +79,7 @@ export function TodoProvider({ children }: { children: React.ReactNode }) {
 
     const addTodo = async (text: string) => {
         try {
+            await new Promise((resolve) => setTimeout(resolve, 1000))
             const newTodo = await todoService.addTodo(text)
             dispatch({ type: "ADD_TODO", payload: newTodo })
         } catch (err) {
