@@ -30,6 +30,24 @@ Frontend To-Do Application Competency Task by Tapiwa Zireva.
 - **Optimistic Updates**: UI updates immediately for better UX, with rollback on error
 - **Clean Architecture**: All async operations implemented inline within TodoContext, following best practices for React state management with reducers
 
+### Phase 3: Polish & Advanced Features ✅
+- **Enhanced Theme System**:
+  - Smooth color transitions between light/dark modes (0.3s ease)
+  - System preference detection and auto-switching
+  - Custom TZ brand colors (purple #433458 & rose gold) maintained across themes
+  - CSS custom properties for consistent theming
+- **Smooth Animations**:
+  - Framer Motion AnimatePresence for list items
+  - Enter/exit animations with fade and slide effects
+  - Layout animations on todo reordering
+  - Hover states with smooth transitions
+- **Accessibility**:
+  - Keyboard navigation with focus-visible states
+  - ARIA-compliant button and checkbox components
+  - Focus ring indicators (2px ring with offset)
+  - Proper focus management in modals and forms
+  - Screen reader friendly component structure
+
 ## Tech Stack
 
 - **React 19** - UI library
