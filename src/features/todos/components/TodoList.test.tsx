@@ -32,9 +32,9 @@ describe('TodoList', () => {
         } as any);
 
         render(<TodoList />);
-        // Check for pulse elements
-        const pulseElements = document.querySelectorAll('.animate-pulse');
-        expect(pulseElements.length).toBe(3);
+        // Check for spinner
+        const spinner = document.querySelector('.animate-spin');
+        expect(spinner).toBeInTheDocument();
     });
 
     it('should render error state', () => {
