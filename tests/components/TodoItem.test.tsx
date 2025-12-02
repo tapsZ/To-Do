@@ -1,10 +1,10 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { TodoItem } from './TodoItem';
-import { useTodos } from '../../../context/TodoContext';
+import { TodoItem } from '../../src/features/todos/components/TodoItem';
+import { useTodos } from '../../src/context/todo/TodoContext';
 
 // Mock useTodos
-vi.mock('../../../context/TodoContext', () => ({
+vi.mock('../../src/context/todo/TodoContext', () => ({
     useTodos: vi.fn(),
 }));
 
@@ -17,20 +17,20 @@ vi.mock('framer-motion', () => ({
 }));
 
 // Mock UI components
-vi.mock('../../../components/ui/Checkbox', () => ({
+vi.mock('../../src/components/ui/Checkbox', () => ({
     Checkbox: ({ checked, onCheckedChange }: any) => (
         <input type="checkbox" checked={checked} onChange={() => onCheckedChange(!checked)} data-testid="checkbox" />
     ),
 }));
-vi.mock('../../../components/ui/Button', () => ({
+vi.mock('../../src/components/ui/Button', () => ({
     Button: ({ children, onClick, ...props }: any) => <button onClick={onClick} {...props}>{children}</button>,
 }));
-vi.mock('../../../components/ui/Input', () => ({
+vi.mock('../../src/components/ui/Input', () => ({
     Input: ({ value, onChange, onKeyDown, ...props }: any) => (
         <input value={value} onChange={onChange} onKeyDown={onKeyDown} {...props} />
     ),
 }));
-vi.mock('../../../components/ui/Modal', () => ({
+vi.mock('../../src/components/ui/Modal', () => ({
     Modal: ({ isOpen, children, footer, title }: any) => isOpen ? (
         <div data-testid="modal">
             <h1>{title}</h1>

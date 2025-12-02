@@ -1,55 +1,7 @@
 import React, { createContext, useContext, useReducer, useEffect } from "react"
-import { todoService, type Todo } from "../services/todoService"
-
-type TodoState = {
-    todos: Todo[]
-    isLoading: boolean
-    error: string | null
-    filter: "all" | "active" | "completed"
-}
-
-type TodoAction =
-    | { type: "FETCH_START" }
-    | { type: "FETCH_SUCCESS"; payload: Todo[] }
-    | { type: "FETCH_ERROR"; payload: string }
-    | { type: "ADD_TODO"; payload: Todo }
-    | { type: "UPDATE_TODO"; payload: Todo }
-    | { type: "DELETE_TODO"; payload: string }
-    | { type: "SET_FILTER"; payload: "all" | "active" | "completed" }
-
-export const initialState: TodoState = {
-    todos: [],
-    isLoading: false,
-    error: null,
-    filter: "all",
-}
-
-export const todoReducer = (state: TodoState, action: TodoAction): TodoState => {
-    switch (action.type) {
-        case "FETCH_START":
-            return { ...state, isLoading: true, error: null }
-        case "FETCH_SUCCESS":
-            return { ...state, isLoading: false, todos: action.payload }
-        case "FETCH_ERROR":
-            return { ...state, isLoading: false, error: action.payload }
-        case "ADD_TODO":
-            return { ...state, todos: [action.payload, ...state.todos] }
-        case "UPDATE_TODO":
-            return {
-                ...state,
-                todos: state.todos.map((t) => (t.id === action.payload.id ? action.payload : t)),
-            }
-        case "DELETE_TODO":
-            return {
-                ...state,
-                todos: state.todos.filter((t) => t.id !== action.payload),
-            }
-        case "SET_FILTER":
-            return { ...state, filter: action.payload }
-        default:
-            return state
-    }
-}
+import { todoService } from "../../services/todoService"
+import type { TodoState } from "./types"
+import { todoReducer, initialState } from "./reducer"
 
 interface TodoContextType extends TodoState {
     addTodo: (text: string) => Promise<void>
