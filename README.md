@@ -58,6 +58,29 @@ Frontend To-Do Application Competency Task by Tapiwa Zireva.
 - **Lucide React** - Icon library
 - **Vitest** - Unit testing
 
+## How It Works
+
+Here is a simple overview of how the application functions:
+
+```mermaid
+graph TD
+    User((User))
+    subgraph "The Application"
+        UI[User Interface\n(Forms, Lists, Buttons)]
+        Logic[Logic Center\n(TodoContext)]
+    end
+    Storage[(Browser Memory\nLocalStorage)]
+
+    User -- 1. Interacts --> UI
+    UI -- 2. Sends Action --> Logic
+    Logic -- 3. Updates Data --> UI
+    Logic -- 4. Saves/Loads --> Storage
+```
+
+1. **User Interface**: What you see and click on (The list, the input box).
+2. **Logic Center**: The "brain" that manages the list of todos and handles rules.
+3. **Browser Memory**: Where your todos are saved so they don't disappear when you refresh.
+
 ## Getting Started
 
 ### Prerequisites
