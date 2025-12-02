@@ -103,19 +103,23 @@ npm test
 
 ## Deployment
 
-This project is configured for automatic deployment to Cloudflare Pages via GitHub Actions.
+This project is configured for automatic deployment to GitHub Pages via GitHub Actions.
+
+### Live Demo
+[https://tapsZ.github.io/To-Do/](https://tapsZ.github.io/To-Do/)
 
 ### Setup
 
-1. Go to your GitHub repository Settings → Secrets and variables → Actions
-2. Add the following secrets:
-   - `CLOUDFLARE_API_TOKEN`: Your Cloudflare API token
-   - `CLOUDFLARE_ACCOUNT_ID`: Your Cloudflare account ID
+1. Go to your GitHub repository Settings → Pages
+2. Ensure "Build and deployment" source is set to "GitHub Actions" (or "Deploy from a branch" if using the `gh-pages` branch directly, but our workflow handles this).
+   *Actually, our workflow deploys to `gh-pages` branch, so:*
+   - Source: Deploy from a branch
+   - Branch: `gh-pages` / `root`
 
 ### Automatic Deployment
 
-- Every push to `main` branch triggers automatic deployment
-- Pull requests create preview deployments
+- Every push to `main` branch triggers tests and automatic deployment to GitHub Pages.
+- Pull requests trigger tests to ensure code quality.
 
 ## Author
 
